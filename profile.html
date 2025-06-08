@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Profile</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <img src="images/logo.png" id="logo">
+            <span class="text">Urbiztondo <br> Admin Portal</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="#dashboard-content" data-target="dashboard">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#analytics-content" data-target="analytics">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#messages-content" data-target="messages">
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="text">Messages</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu bottom">
+            <li>
+                <a href="settings" class="settings" data-target="settings">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="log-out" class="logout" data-target="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="content">
+        <nav>
+            <i class='bx bx-menu' ></i>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell' ></i>
+            </a>
+            <a href="#" class="profile">
+                <img src="images/people.png">
+            </a>
+        </nav>
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Admin Profile</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right' ></i></li>
+                        <li>
+                            <a class="active" href="#">Profile</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="profile-container">
+                <div class="profile-header">
+                    <div class="profile-picture">
+                        <img src="images/people.png" alt="Profile Picture" id="userProfilePic">
+                        <input type="file" id="uploadProfilePic" accept="image/*" hidden>
+                    </div>
+                    <div class="profile-picture-upload">
+                        <label for="uploadProfilePic" class="upload-button"><i class='bx bxs-camera'></i></label>
+                    </div>
+                    <div class="user-details-header">
+                        <h2>Admin</h2>
+                        <p class="position">Municipal Administrator</p>
+                    </div>
+                </div>
+
+                <div class="profile-section personal-info">
+                    <h3>Personal Information</h3>
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>Name:</label>
+                            <span id="profileName" class="display-mode">Admin</span>
+                            <input type="text" id="editName" class="edit-mode" value="Admin">
+                        </div>
+                        <div class="info-item">
+                            <label>Email:</label>
+                            <span id="profileEmail" class="display-mode">admin.123@municipal.gov</span>
+                            <input type="email" id="editEmail" class="edit-mode" value="admin.123@municipal.gov">
+                        </div>
+                        <div class="info-item">
+                            <label>Address:</label>
+                            <span id="profileAddress" class="display-mode">123 Main St, Anytown, Philippines</span>
+                            <input type="text" id="editAddress" class="edit-mode" value="123 Main St, Anytown, Philippines">
+                        </div>
+                        <div class="info-item">
+                            <label>Municipal Position:</label>
+                            <span id="profilePosition" class="display-mode">Municipal Administrator</span>
+                            </div>
+                        <div class="info-item">
+                            <label>Last Login:</label>
+                            <span>June 7, 2025 10:30 AM</span>
+                        </div>
+                    </div>
+                    <div class="profile-actions">
+                        <button class="edit-profile-btn" id="toggleEditMode">Edit Profile</button>
+                        <button class="save-profile-btn" id="saveProfileChanges" style="display:none;">Save Changes</button>
+                        <button class="cancel-edit-btn" id="cancelProfileEdit" style="display:none;">Cancel</button>
+                    </div>
+                </div>
+
+                <div class="profile-section logout-section">
+                    <button class="logout-button">Log Out</button>
+                </div>
+
+            </div>
+        </main>
+        </section>
+    <script src="js/profile.js"></script>
+</body>
+</html>

@@ -25,16 +25,16 @@ li {
     --chat-header: #1f2937;
     --contact1: #e0e7ff;
     --contact2: #c7d2fe;
-    --contact-avatar: #6366f1;
+    --contact-avatar: #2563eb;
     --contact-name: #1f2937;
-    --new-chat: #6366f1;
-    --nchat-hover: #4f46e5;
-    --message-content: #a78bfa;
+    --new-chat: #2563eb;
+    --nchat-hover: #1d4ed8;
+    --message-content: #60a5fa;
     --message-info: #6b7280;
     --chat-input: #e5e7eb;
     --chat-input-bg: #f9fafb;
     --chat-input-border: #d1d5db;
-    --chat-send-button: #4338ca;
+    --chat-send-button: #2563eb;
     --chat-sender-bg: #f0f3f8;
 
     --bg-light: #F9F9F9;
@@ -57,16 +57,16 @@ body.dark {
     --chat-header: #ffffff;
     --contact1: #2c3e50;
     --contact2: #4a4e69;
-    --contact-avatar: #7c3aed;
+    --contact-avatar: #60a5fa;
     --contact-name: #e0e7ff;
-    --new-chat: #7c3aed;
-    --nchat-hover: #6d28d9;
-    --message-content: #5b21b6;
+    --new-chat: #60a5fa;
+    --nchat-hover: #3b82f6;
+    --message-content: #3b82f6;
     --message-info: #9ca3af;
-    --chat-input: #2c3e50;
-    --chat-input-bg: #2d3a4b;
+    --chat-input: #bfdbfe;
+    --chat-input-bg: #1f2937;
     --chat-input-border: #4b5563;
-    --chat-send-button: #6366f1;
+    --chat-send-button: #60a5fa;
     --chat-sender-bg: #2d3748;
 
     --bg-light: #0C0C1E;
