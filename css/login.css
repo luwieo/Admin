@@ -1,0 +1,375 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(to right bottom, #e0f2f7, #d4edff);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    height: 90vh;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.left-side {
+    flex: 1.2;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Urbiztondo%2CPangasinanjf7952_03.JPG/800px-Urbiztondo%2CPangasinanjf7952_03.JPG') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.left-side::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.right-side {
+    flex: 1;
+    background-color: #ffffff;
+    justify-content: center;
+    display: grid;
+    padding: 20px;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+.form-box {
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: all 0.4s ease-in-out;
+    transform-style: preserve-3d;
+}
+
+.header-group {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 10px;
+    object-fit: contain;
+}
+
+
+h2 {
+    font-size: 32px;
+    margin-bottom: 8px;
+    color: #214349;
+    font-weight: 700;
+}
+
+.header-group p {
+    font-size: 16px;
+    color: #666;
+    margin-top: 0;
+    line-height: 1.5;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 15px;
+    color: #444;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.input-group input[type="text"],
+.input-group input[type="password"],
+.input-group input[type="email"],
+.input-group select {
+    width: 100%;
+    padding: 14px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: #f9f9f9;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #214349;
+    box-shadow: 0 0 0 3px rgba(33, 67, 73, 0.2);
+    background-color: #fff;
+}
+
+.btn {
+    width: 100%;
+    padding: 15px;
+    font-size: 18px;
+    background-color: #214349;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background-color: #1a3439;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-link {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 15px;
+    color: #555;
+}
+
+.toggle-link a {
+    color: #214349;
+    text-decoration: none;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.toggle-link a:hover {
+    text-decoration: underline;
+    color: #1a3439;
+}
+
+.forgot-password-link {
+    font-size: 13px;
+    color: #214349;
+    text-decoration: none;
+    text-align: right;
+    display: block;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+    color: #1a3439;
+}
+
+.social-label {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #777;
+    font-size: 14px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.social-label::before,
+.social-label::after {
+    content: '';
+    position: relative;
+    flex-grow: 1;
+    height: 1px;
+    background-color: #eee;
+    margin: 0 10px;
+}
+
+.social-btns {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.social-btn {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    padding: 12px 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.social-btn:hover {
+    background-color: #f5f5f5;
+    border-color: #bbb;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    transform: translateY(-1px);
+}
+
+.social-btn img {
+    width: 24px;
+    height: 24px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+.checkbox-group input[type="checkbox"] {
+    margin-right: 10px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    top: 1px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-group input[type="checkbox"]:checked {
+    background-color: #214349;
+    border-color: #214349;
+}
+
+.checkbox-group input[type="checkbox"]:checked::before {
+    content: '✔';
+    display: block;
+    color: white;
+    font-size: 14px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.checkbox-group label {
+    cursor: pointer;
+    line-height: 1.4;
+}
+
+.checkbox-group label a {
+    color: #214349;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.checkbox-group label a:hover {
+    text-decoration: underline;
+    color: #1a3439;
+}
+
+@media screen and (max-width: 992px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        max-width: 600px;
+        margin: 20px auto;
+    }
+
+    .left-side {
+        flex: none;
+        width: 100%;
+        height: 250px;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .right-side {
+        flex: none;
+        width: 100%;
+        padding: 30px;
+        border-radius: 0 0 15px 15px;
+        max-height: 70vh;
+    }
+
+    .form-box {
+        max-width: none;
+        box-shadow: none;
+        padding: 0;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h2 {
+        font-size: 28px;
+    }
+
+    .btn {
+        font-size: 17px;
+        padding: 13px;
+    }
+
+    .social-btn {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+
+    .social-btn img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .right-side {
+        padding: 20px;
+        max-height: 60vh;
+    }
+
+    .left-side {
+        height: 200px;
+    }
+
+    .checkbox-group {
+        font-size: 13px;
+    }
+}
+
+.fade-out {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.3s ease-in, transform 0.3s ease-in;
+}

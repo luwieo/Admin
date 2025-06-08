@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Portal - Settings</title>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/settings.css">
+</head>
+<body>
+
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <img src="images/logo.png" id="logo">
+            <span class="text">Urbiztondo Admin Portal</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="#dashboard-content" data-target="dashboard">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#analytics-content" data-target="analytics">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#messages-content" data-target="messages">
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="text">Messages</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu bottom">
+            <li>
+                <a href="settings" data-target="settings" class="settings">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Settings</span>
+                </a>    
+            </li>
+            <li>
+                <a href="logout" data-target="logout" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <section id="content">
+        <nav>
+            <i class='bx bx-menu' ></i>
+            <form action="#">
+                <div></div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell' ></i>
+            </a>
+            <a href="#" class="profile">
+                <img src="images/people.png">
+            </a>
+        </nav>
+
+        <main>
+            <div class="head-title">
+                <div class="left">
+                    <h1>Settings</h1>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li><i class='bx bx-chevron-right' ></i></li>
+                        <li>
+                            <a class="active" href="#">Settings</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="settings-container">
+                <div class="settings-sidebar">
+                    <ul>
+                        <li class="active" data-section="general">General</li>
+                        <li data-section="security">Security</li>
+                        <li data-section="notifications">Notifications</li>
+                        <li data-section="appearance">Appearance</li>
+                    </ul>
+                </div>
+
+                <div class="settings-content">
+                    <div id="general" class="settings-section active">
+                        <h2>General Settings</h2>
+                        <div class="setting-item">
+                            <label for="adminName">Admin Name:</label>
+                            <input type="text" id="adminName" placeholder="ADMIN Name" value="ADMIN">
+                        </div>
+                        <div class="setting-item">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" placeholder="ADMIN Email" value="admin.123@municipal.gov">
+                        </div>
+                        <div class="setting-item">
+                            <label for="timezone">Timezone:</label>
+                            <select id="timezone">
+                                <option value="PST">Pacific Standard Time (PST)</option>
+                                <option value="EST">Eastern Standard Time (EST)</option>
+                                <option value="GMT+8" selected>Philippine Standard Time (GMT+8)</option>
+                            </select>
+                        </div>
+                        <button class="save-button">Save Changes</button>
+                    </div>
+
+                    <div id="security" class="settings-section">
+                        <h2>Security Settings</h2>
+                        <div class="setting-item">
+                            <label for="currentPassword">Current Password:</label>
+                            <input type="password" id="currentPassword">
+                        </div>
+                        <div class="setting-item">
+                            <label for="newPassword">New Password:</label>
+                            <input type="password" id="newPassword">
+                        </div>
+                        <div class="setting-item">
+                            <label for="confirmPassword">Confirm New Password:</label>
+                            <input type="password" id="confirmPassword">
+                        </div>
+                        <div class="setting-item">
+                            <input type="checkbox" id="twoFactorAuth">
+                            <label for="twoFactorAuth">Enable Two-Factor Authentication</label>
+                        </div>
+                        <button class="save-button">Update Password</button>
+                    </div>
+
+                    <div id="notifications" class="settings-section">
+                        <h2>Notification Settings</h2>
+                        <div class="setting-item">
+                            <input type="checkbox" id="emailNotifications" checked>
+                            <label for="emailNotifications">Email Notifications</label>
+                        </div>
+                        <div class="setting-item">
+                            <input type="checkbox" id="smsNotifications">
+                            <label for="smsNotifications">SMS Notifications</label>
+                        </div>
+                        <div class="setting-item">
+                            <input type="checkbox" id="pushNotifications" checked>
+                            <label for="pushNotifications">Push Notifications</label>
+                        </div>
+                        <button class="save-button">Save Preferences</button>
+                    </div>
+
+                    <div id="appearance" class="settings-section">
+                        <h2>Appearance</h2>
+                        <div class="setting-item">
+                            <label>Theme:</label>
+                            <div class="theme-options">
+                                <input type="radio" id="lightTheme" name="theme" value="light" checked>
+                                <label for="lightTheme">Light</label>
+                                <input type="radio" id="darkTheme" name="theme" value="dark">
+                                <label for="darkTheme">Dark</label>
+                            </div>
+                        </div>
+                        <div class="setting-item">
+                            <label for="fontScale">Font Scale:</label>
+                            <input type="range" id="fontScale" min="0.8" max="1.2" step="0.1" value="1.0">
+                            <span>100%</span>
+                        </div>
+                        <button class="save-button">Apply Appearance</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+        </section>
+    <script src="js/settings.js"></script>
+</body>
+</html>

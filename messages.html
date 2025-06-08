@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/chatstyles.css">
+
+    <title>Urbiztondo - Admin Portal</title>
+</head>
+
+<body>
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <img src="images/logo.png" id="logo">
+            <span class="text">Urbiztondo Admin Portal</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="#dashboard-content" data-target="dashboard">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li>
+                <a href="#analytics-content" data-target="analytics">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#messages-content" data-target="messages">
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="text">Messages</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu bottom">
+            <li>
+                <a href="logout" data-target="settings" class="settings">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="logout" data-target="logout" class="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="content">
+        <nav>
+            <i class='bx bx-menu' ></i>
+            <form action="#">
+                <div></div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell' ></i>
+            </a>
+            <a href="#" class="profile">
+                <img src="images/people.png">
+            </a>
+        </nav>
+<main>
+<div class="head-title">
+    <div class="left">
+        <h1>Messages</h1>
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">Messages</a>
+            </li>
+            <li><i class='bx bx-chevron-right'></i></li>
+            <li>
+                <a class="active" href="#">Home</a>
+            </li>
+        </ul>
+    </div>
+</div>
+<br>
+<div class="messenger-container">
+    <div class="chat-sidebar">
+        <div class="chat-sidebar-header">Chats</div>
+        <div class="contact-list" id="contact-list">
+            </div>
+        <button id="new-chat-button" class="new-chat-button">
+            + New Chat
+        </button>
+    </div>
+
+    <div class="chat-area">
+        <div class="chat-header-main">
+            <div class="message-avatar bg-indigo-500" id="current-chat-avatar"></div>
+            <div class="chat-current-name" id="current-chat-name"></div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-input" class="chat-input" placeholder="Type your message...">
+            <button id="send-button" class="chat-send-button">Send</button>
+        </div>
+    </div>
+</div>
+</main>
+<script src="js/messages.js"></script>
+</body>
+</html>

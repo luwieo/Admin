@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/analytics.css">
+    <title>Urbiztondo - Admin Portal</title>
+</head>
+
+<body>
+    <section id="sidebar">
+        <a href="#" class="brand">
+            <img src="images/logo.png" id="logo">
+            <span class="text">Urbiztondo Admin Portal</span>
+        </a>
+        <ul class="side-menu top">
+            <li>
+                <a href="#dashboard-content" data-target="dashboard">
+                    <i class='bx bxs-dashboard'></i>
+                    <span class="text">Dashboard</span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#analytics-content" data-target="analytics">
+                    <i class='bx bxs-doughnut-chart'></i>
+                    <span class="text">Analytics</span>
+                </a>
+            </li>
+            <li>
+                <a href="#messages-content" data-target="messages">
+                    <i class='bx bxs-message-dots'></i>
+                    <span class="text">Messages</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="side-menu bottom">
+            <li>
+                <a href="settings" class="settings" data-target="settings">
+                    <i class='bx bxs-cog'></i>
+                    <span class="text">Settings</span>
+                </a>
+            </li>
+            <li>
+                <a href="logout" class="logout" data-target="logout">
+                    <i class='bx bxs-log-out-circle'></i>
+                    <span class="text">Logout</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+
+    <section id="content">
+        <nav>
+            <i class='bx bx-menu' ></i>
+            <form action="#">
+                <div></div>
+            </form>
+            <input type="checkbox" id="switch-mode" hidden>
+            <label for="switch-mode" class="switch-mode"></label>
+            <a href="#" class="notification">
+                <i class='bx bxs-bell' ></i>
+            </a>
+            <a href="#" class="profile">
+                <img src="images/people.png">
+            </a>
+        </nav>
+
+    <main>
+        <div class="head-title">
+            <div class="left">
+                <h1>Analytics</h1>
+                <ul class="breadcrumb">
+                    <li>
+                        <a href="#">Analytics</a>
+                    </li>
+                    <li><i class='bx bx-chevron-right'></i></li>
+                    <li>
+                        <a class="active" href="#">Home</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="top-widgets-container">
+            <div class="box-info">
+                <a href="#" class="box-link" id="applications-link">
+                    <i class='bx bx-file'></i>
+                    <span class="text">
+                        <h4>Overall Data</h4>
+                        <p style="font-size: 14px;">View Overall Data</p>
+                    </span>
+                </a>
+                <a href="#" class="box-link" id="services-link">
+                    <i class='bx bx-briefcase'></i>
+                    <span class="text">
+                        <h4>Services</h4>
+                        <p style="font-size: 14px;">View all Services Request</p>
+                    </span>
+                </a>
+                <a href="#" class="box-link" id="complaints-link">
+                    <i class='bx bxs-message-error' style="color: #FD7238; background-color: #FFE0D3;"></i>
+                    <span class="text">
+                        <h4>Complaints</h4>
+                        <p style="font-size: 12px;">View all Complaints</p> </span>
+                </a>
+            </div>
+            <div class="chart-container">
+                <canvas id="doughnutChart"></canvas>
+            </div>
+        </div>
+
+        <div class="table-data">
+            <div class="order">
+                <div class="head">
+                    <h3>Citizen Applications</h3>
+                    <div class="search-container">
+                        <input type="search" id="search-input" placeholder="Search...">
+                        <button type="submit" class="search-btn" id="search-button"><i class='bx bx-search'></i></button>
+                    </div>
+                    <button class="show-all-btn" id="show-all-button">All Data</button> <i class='bx bx-filter' id="filter-button"></i>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Citizen Name</th>
+                            <th>Address</th>
+                            <th>Application Type</th>
+                            <th>Application Number</th>
+                            <th>Date Submitted</th>
+                            <th>Last Updated</th>
+                            <th>Status</th>
+                            <th>Remarks</th>
+                            <th>View</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Mylene Equilona</td>
+                            <td>Blk 1 Lot 1</td>
+                            <td>Birth Certificate</td>
+                            <td>S-12345</td>
+                            <td>05-18-2025</td>
+                            <td>05-28-2025</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td>Approved</td>
+                            <td><button>View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Angelo Famador</td>
+                            <td>Blk 5 Lot 11</td>
+                            <td>Business Permit</td>
+                            <td>S-12346</td>
+                            <td>05-22-2025</td>
+                            <td>05-23-2025</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>Under Approval</td>
+                            <td><button>View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Kim Napatutan</td>
+                            <td>Blk 2 Lot 3</td>
+                            <td>Building Permit</td>
+                            <td>S-12347</td>
+                            <td>05-20-2025</td>
+                            <td>05-26-2025</td>
+                            <td><span class="status process">On Process</span></td>
+                            <td>Approved</td>
+                            <td><button>View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Erik Poyaoan</td>
+                            <td>Blk 3 Lot 16</td>
+                            <td>Demolition Permit</td>
+                            <td>S-67890</td>
+                            <td>05-27-2025</td>
+                            <td>05-28-2025</td>
+                            <td><span class="status denied">Denied</span></td>
+                            <td>Declined</td>
+                            <td><button>View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Jana Soriano</td>
+                            <td>Blk 4 Lot 5</td>
+                            <td>Death Certificate</td>
+                            <td>S-17281</td>
+                            <td>05-17-2025</td>
+                            <td>05-25-2025</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td>Approved</td>
+                            <td><button>View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Justine Ibale</td>
+                            <td>Blk 2 Lot 7</td>
+                            <td>Noise Complaint</td>
+                            <td>C-12345</td>
+                            <td>05-18-2025</td>
+                            <td>05-28-2025</td>
+                            <td><span class="status completed">Completed</span></td>
+                            <td>Approved</td>
+                            <td><button>View</button></td>
+                        </tr>
+                        <tr>
+                            <td>Rodge Funtalba</td>
+                            <td>Blk 1 Lot 13</td>
+                            <td>Pollution Complaint</td>
+                            <td>C-12345</td>
+                            <td>05-18-2025</td>
+                            <td>05-28-2025</td>
+                            <td><span class="status pending">Pending</span></td>
+                            <td>Under Approval</td>
+                            <td><button>View</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div id="no-results-message" class="text-center text-gray-500 mt-4 hidden">
+                    No results found.
+                </div>
+            </div>
+        </div>
+    </main>
+    </section>
+
+    <script src="js/analytics.js"></script>
+    <script>
+        const canvas = document.getElementById('doughnutChart');
+        const ctx = canvas.getContext('2d');
+
+        let currentChartData = []; // This will hold the data currently being displayed
+        let hoveredSegmentIndex = -1; // Stores the index of the currently hovered segment
+        let currentChartTitle = 'Overall Data Distribution'; // Title for the center of the chart
+
+        // Define a color palette for the chart segments
+        const colors = [
+            '#ef4444', // red-500
+            '#3b82f6', // blue-500
+            '#22c55e', // green-500
+            '#eab308', // yellow-500
+            '#a855f7', // purple-500
+            '#f97316', // orange-500
+            '#06b6d4', // cyan-500
+            '#8b5cf6', // violet-500
+            '#ec4899', // pink-500
+            '#6b7280'  // gray-500
+        ];
+
+        // Function to assign colors to data based on labels
+        function assignColors(data) {
+            let colorMap = {};
+            let colorIndex = 0;
+            return data.map(item => {
+                if (!colorMap[item.label]) {
+                    colorMap[item.label] = colors[colorIndex % colors.length];
+                    colorIndex++;
+                }
+                return { ...item, color: colorMap[item.label] };
+            });
+        }
+
+        // Function to extract and process data from the 'Citizen Applications' table
+        function getApplicationsChartData() {
+            const tableBody = document.querySelector('.table-data tbody');
+            if (!tableBody) {
+                console.error("Table body not found for applications.");
+                return [];
+            }
+
+            const applicationCounts = {};
+            // Use originalTableRows to get data for the chart, regardless of current table filter/sort state
+            const rows = originalTableRows;
+
+            rows.forEach(row => {
+                // Assuming 'Application Type' is the 3rd column (index 2)
+                const applicationTypeCell = row.children[2];
+                if (applicationTypeCell) {
+                    const applicationType = applicationTypeCell.textContent.trim();
+                    applicationCounts[applicationType] = (applicationCounts[applicationType] || 0) + 1;
+                }
+            });
+
+            const rawData = Object.keys(applicationCounts).map(label => ({
+                label: label,
+                value: applicationCounts[label]
+            }));
+
+            return assignColors(rawData);
+        }
+
+        // Function to get data for Services (based on specific application types)
+        function getServicesChartData() {
+            const tableBody = document.querySelector('.table-data tbody');
+            if (!tableBody) {
+                console.error("Table body not found for services.");
+                return [];
+            }
+
+            const serviceTypes = [
+                'Birth Certificate',
+                'Business Permit',
+                'Building Permit',
+                'Demolition Permit',
+                'Death Certificate'
+            ];
+            const serviceCounts = {};
+            // Use originalTableRows to get data for the chart, regardless of current table filter/sort state
+            const rows = originalTableRows;
+
+            rows.forEach(row => {
+                const applicationTypeCell = row.children[2]; // Application Type
+                if (applicationTypeCell) {
+                    const applicationType = applicationTypeCell.textContent.trim();
+                    if (serviceTypes.includes(applicationType)) {
+                        serviceCounts[applicationType] = (serviceCounts[applicationType] || 0) + 1;
+                    }
+                }
+            });
+
+            const rawData = Object.keys(serviceCounts).map(label => ({
+                label: label,
+                value: serviceCounts[label]
+            }));
+
+            return assignColors(rawData);
+        }
+
+        // Function to get data for Complaints (based on specific application types)
+        function getComplaintsChartData() {
+            const tableBody = document.querySelector('.table-data tbody');
+            if (!tableBody) {
+                console.error("Table body not found for complaints.");
+                return [];
+            }
+
+            const complaintTypes = [
+                'Noise Complaint',
+                'Pollution Complaint' // Changed from 'Infrastructure Complaint'
+            ];
+            const complaintCounts = {};
+            // Use originalTableRows to get data for the chart, regardless of current table filter/sort state
+            const rows = originalTableRows;
+
+            rows.forEach(row => {
+                const applicationTypeCell = row.children[2]; // Application Type
+                if (applicationTypeCell) {
+                    const applicationType = applicationTypeCell.textContent.trim();
+                    if (complaintTypes.includes(applicationType)) {
+                        complaintCounts[applicationType] = (complaintCounts[applicationType] || 0) + 1;
+                    }
+                }
+            });
+
+            const rawData = Object.keys(complaintCounts).map(label => ({
+                label: label,
+                value: complaintCounts[label]
+            }));
+
+            return assignColors(rawData);
+        }
+
+        // Function to draw the doughnut chart
+        function drawDoughnutChart(hoveredIndex = -1) {
+            // Clear the canvas before redrawing
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Set canvas dimensions to match its display size for sharp rendering
+            const dpi = window.devicePixelRatio || 1;
+            const styleWidth = getComputedStyle(canvas).width;
+            const styleHeight = getComputedStyle(canvas).height;
+            canvas.width = parseFloat(styleWidth) * dpi;
+            canvas.height = parseFloat(styleHeight) * dpi;
+            ctx.scale(dpi, dpi);
+
+            const centerX = canvas.width / (2 * dpi);
+            const centerY = canvas.height / (2 * dpi);
+            const baseRadius = Math.min(centerX, centerY) * 0.8; // Base outer radius
+            const innerRadius = baseRadius * 0.6; // Inner radius for doughnut hole
+
+            let totalValue = currentChartData.reduce((sum, item) => sum + item.value, 0);
+            let currentAngle = 0;
+
+            // Store segment data for click detection
+            const segmentsForClick = [];
+
+            // Draw each segment
+            currentChartData.forEach((segment, index) => {
+                const sliceAngle = (segment.value / totalValue) * Math.PI * 2;
+                const isHovered = (index === hoveredIndex);
+                const radius = isHovered ? baseRadius * 1.05 : baseRadius; // Slightly larger radius for hovered segment
+
+                // Store segment data for click detection
+                segmentsForClick.push({
+                    startAngle: currentAngle,
+                    endAngle: currentAngle + sliceAngle,
+                    innerRadius: innerRadius,
+                    outerRadius: radius,
+                    label: segment.label
+                });
+
+                // Draw the arc for the segment
+                ctx.beginPath();
+                ctx.arc(centerX, centerY, radius, currentAngle, currentAngle + sliceAngle);
+                ctx.arc(centerX, centerY, innerRadius, currentAngle + sliceAngle, currentAngle, true); // Inner arc
+                ctx.closePath();
+                ctx.fillStyle = segment.color;
+                ctx.fill();
+
+                // Add a subtle border between segments for better definition
+                ctx.strokeStyle = '#ffffff'; // White border
+                ctx.lineWidth = isHovered ? 3 : 2; // Thicker border for hovered segment
+                ctx.stroke();
+
+                // Draw percentage text on the segment
+                const midAngle = currentAngle + sliceAngle / 2;
+                const textRadius = (radius + innerRadius) / 2;
+                const textX = centerX + textRadius * Math.cos(midAngle);
+                const textY = centerY + textRadius * Math.sin(midAngle);
+
+                ctx.fillStyle = '#ffffff'; // White text for better contrast
+                ctx.font = `bold ${baseRadius * 0.06}px Inter`; /* Smaller font size for percentages */
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                const percentage = (totalValue > 0) ? ((segment.value / totalValue) * 100).toFixed(1) : 0;
+                if (percentage > 5) { // Only show percentage if segment is large enough
+                    ctx.fillText(`${percentage}%`, textX, textY);
+                }
+
+                currentAngle += sliceAngle;
+            });
+
+            // Draw the center circle (hole)
+            ctx.beginPath();
+            ctx.arc(centerX, centerY, innerRadius, 0, Math.PI * 2);
+            ctx.fillStyle = '#f8fafc'; // Light background for the hole
+            ctx.fill();
+
+            // Add central text based on hover state
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+
+            if (hoveredIndex !== -1) {
+                const hoveredSegment = currentChartData[hoveredIndex];
+                ctx.fillStyle = '#334155'; // Slate-700
+                ctx.font = `bold ${baseRadius * 0.12}px Inter`; /* Smaller font size for hovered label */
+                ctx.fillText(hoveredSegment.label, centerX, centerY - baseRadius * 0.08);
+                ctx.font = `normal ${baseRadius * 0.06}px Inter`; /* Smaller font size for hovered value */
+                ctx.fillText(`Value: ${hoveredSegment.value}`, centerX, centerY + baseRadius * 0.08);
+            } else {
+                ctx.fillStyle = '#334155'; // Slate-700
+                ctx.font = `bold ${baseRadius * 0.12}px Inter`; /* Smaller font size for main title */
+                // Split title into two lines if it contains a space
+                const titleParts = currentChartTitle.split(' ');
+                if (titleParts.length > 1) {
+                    ctx.fillText(titleParts[0], centerX, centerY - baseRadius * 0.08);
+                    ctx.font = `normal ${baseRadius * 0.06}px Inter`; /* Smaller font size for main subtitle */
+                    ctx.fillText(titleParts.slice(1).join(' '), centerX, centerY + baseRadius * 0.08);
+                } else {
+                    ctx.fillText(currentChartTitle, centerX, centerY);
+                }
+            }
+
+            // Return segment data for click detection
+            return segmentsForClick;
+        }
+
+        // Variable to store segment data for click detection
+        let activeSegmentsForClick = [];
+
+        // Function to update the chart data and redraw
+        function updateChart(type) {
+            hoveredSegmentIndex = -1; // Reset hover state
+            if (type === 'services') {
+                currentChartData = getServicesChartData();
+                currentChartTitle = 'Service Requests';
+            } else if (type === 'complaints') {
+                currentChartData = getComplaintsChartData();
+                currentChartTitle = 'Complaint Categories';
+            } else { // Default to applications (now "overall data")
+                currentChartData = getApplicationsChartData();
+                currentChartTitle = 'Overall Data Distribution';
+            }
+            activeSegmentsForClick = drawDoughnutChart(); // Store the segment data when drawing
+        }
+
+        // Event listener for mouse movement
+        canvas.addEventListener('mousemove', function(event) {
+            const mouseX = event.offsetX; // Get mouse X relative to canvas
+            const mouseY = event.offsetY; // Get mouse Y relative to canvas
+
+            const dpi = window.devicePixelRatio || 1;
+            const centerX = canvas.width / (2 * dpi);
+            const centerY = canvas.height / (2 * dpi);
+            const baseRadius = Math.min(centerX, centerY) * 0.8;
+            const innerRadius = baseRadius * 0.6;
+
+            // Calculate distance from center
+            const dx = mouseX - centerX;
+            const dy = mouseY - centerY;
+            const distance = Math.sqrt(dx * dx + dy * dy);
+
+            let totalValue = currentChartData.reduce((sum, item) => sum + item.value, 0);
+
+            // Check if mouse is within the doughnut area
+            if (distance >= innerRadius && distance <= baseRadius * 1.05) {
+                let angle = Math.atan2(dy, dx);
+                if (angle < 0) angle += Math.PI * 2;
+
+                let currentAngle = 0;
+                let newHoveredIndex = -1;
+
+                for (let i = 0; i < currentChartData.length; i++) {
+                    const segment = currentChartData[i];
+                    // Ensure totalValue is not zero to prevent division by zero
+                    const sliceAngle = (totalValue > 0) ? (segment.value / totalValue) * Math.PI * 2 : 0;
+                    const endAngle = currentAngle + sliceAngle;
+
+                    if (currentAngle <= angle && angle < endAngle) {
+                        newHoveredIndex = i;
+                        break;
+                    }
+                    currentAngle = endAngle;
+                }
+
+                if (newHoveredIndex !== hoveredSegmentIndex) {
+                    hoveredSegmentIndex = newHoveredIndex;
+                    drawDoughnutChart(hoveredSegmentIndex);
+                }
+            } else {
+                if (hoveredSegmentIndex !== -1) {
+                    hoveredSegmentIndex = -1;
+                    drawDoughnutChart();
+                }
+            }
+        });
+
+        // Event listener for mouse leaving the canvas
+        canvas.addEventListener('mouseout', function() {
+            if (hoveredSegmentIndex !== -1) {
+                hoveredSegmentIndex = -1;
+                drawDoughnutChart();
+            }
+        });
+
+        // Table sorting logic
+        let originalTableRows = []; // To store the initial order of rows
+        let sortOrder = 'none'; // 'none', 'asc'
+
+        // Function to parse date strings (MM-DD-YYYY) into Date objects
+        function parseDate(dateString) {
+            const parts = dateString.split('-');
+            // Month is 0-indexed in JavaScript Date, so subtract 1
+            return new Date(parts[2], parts[0] - 1, parts[1]);
+        }
+
+        // Function to sort the table
+        function sortTableByDate() {
+            const tableBody = document.querySelector('.table-data tbody');
+            if (!tableBody) return;
+
+            let rows = Array.from(tableBody.querySelectorAll('tr'));
+
+            if (sortOrder === 'none') {
+                // Sort from farthest to latest (ascending)
+                rows.sort((rowA, rowB) => {
+                    const dateA = parseDate(rowA.children[4].textContent.trim());
+                    const dateB = parseDate(rowB.children[4].textContent.trim());
+                    return dateA.getTime() - dateB.getTime();
+                });
+                sortOrder = 'asc';
+            } else if (sortOrder === 'asc') {
+                // Revert to original order
+                rows = originalTableRows.filter(row => {
+                    // Re-filter if a search term is active
+                    const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+                    if (searchTerm === "") return true;
+                    return row.textContent.toLowerCase().includes(searchTerm);
+                });
+                sortOrder = 'none';
+            }
+
+            // Clear existing rows and append sorted rows
+            while (tableBody.firstChild) {
+                tableBody.removeChild(tableBody.firstChild);
+            }
+            rows.forEach(row => tableBody.appendChild(row));
+        }
+
+        // Function to handle search
+        function searchTable() {
+            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
+            const tableBody = document.querySelector('.table-data tbody');
+            const noResultsMessage = document.getElementById('no-results-message');
+
+            // Clear existing rows
+            while (tableBody.firstChild) {
+                tableBody.removeChild(tableBody.firstChild);
+            }
+            noResultsMessage.classList.add('hidden'); // Hide any previous "no results" message
+
+            if (searchTerm === "") {
+                // If search term is empty, restore original rows
+                originalTableRows.forEach(row => tableBody.appendChild(row.cloneNode(true))); // Append clones to avoid moving original nodes
+                return;
+            }
+
+            const filteredRows = originalTableRows.filter(row => {
+                let rowText = row.textContent.toLowerCase();
+                return rowText.includes(searchTerm);
+            });
+
+            if (filteredRows.length > 0) {
+                filteredRows.forEach(row => tableBody.appendChild(row.cloneNode(true))); // Append clones
+            } else {
+                noResultsMessage.classList.remove('hidden'); // Show "no results" message
+            }
+        }
+
+        // Function to show all data
+        function showAllData() {
+            const tableBody = document.querySelector('.table-data tbody');
+            const noResultsMessage = document.getElementById('no-results-message');
+            const searchInput = document.getElementById('search-input');
+
+            // Clear existing rows
+            while (tableBody.firstChild) {
+                tableBody.removeChild(tableBody.firstChild);
+            }
+
+            // Append all original rows
+            originalTableRows.forEach(row => tableBody.appendChild(row.cloneNode(true)));
+
+            // Hide no results message
+            noResultsMessage.classList.add('hidden');
+
+            // Clear search input
+            searchInput.value = '';
+
+            // Reset sort order
+            sortOrder = 'none';
+        }
+
+        // New function to filter table by chart segment
+        function filterTableByChartSegment(segmentLabel) {
+            const tableBody = document.querySelector('.table-data tbody');
+            const noResultsMessage = document.getElementById('no-results-message');
+            const searchInput = document.getElementById('search-input');
+
+            // Clear existing rows
+            while (tableBody.firstChild) {
+                tableBody.removeChild(tableBody.firstChild);
+            }
+            noResultsMessage.classList.add('hidden'); // Hide any previous "no results" message
+
+            // Clear search input and reset sort order when filtering by chart
+            searchInput.value = '';
+            sortOrder = 'none';
+
+            const filteredRows = originalTableRows.filter(row => {
+                // Assuming 'Application Type' is the 3rd column (index 2)
+                const applicationTypeCell = row.children[2];
+                if (applicationTypeCell) {
+                    return applicationTypeCell.textContent.trim() === segmentLabel;
+                }
+                return false;
+            });
+
+            if (filteredRows.length > 0) {
+                filteredRows.forEach(row => tableBody.appendChild(row.cloneNode(true))); // Append clones
+            } else {
+                noResultsMessage.classList.remove('hidden'); // Show "no results" message
+            }
+        }
+
+
+        // Initial setup when the window loads
+        window.onload = function() {
+            // Store original table rows
+            const tableBody = document.querySelector('.table-data tbody');
+            if (tableBody) {
+                originalTableRows = Array.from(tableBody.querySelectorAll('tr')).map(row => row.cloneNode(true)); // Store clones
+            }
+
+            // Attach click listeners to the box-links
+            document.getElementById('applications-link').addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                updateChart('applications');
+            });
+            document.getElementById('services-link').addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                updateChart('services');
+            });
+            document.getElementById('complaints-link').addEventListener('click', (e) => {
+                e.preventDefault(); // Prevent default link behavior
+                updateChart('complaints');
+            });
+
+            // Attach click listener to the filter button
+            document.getElementById('filter-button').addEventListener('click', sortTableByDate);
+
+            // Attach click listener to the search button
+            document.getElementById('search-button').addEventListener('click', searchTable);
+
+            // Attach click listener to the new "Show All" button
+            document.getElementById('show-all-button').addEventListener('click', showAllData);
+
+            // Add click listener to the canvas for chart segment filtering
+            canvas.addEventListener('click', function(event) {
+                const mouseX = event.offsetX;
+                const mouseY = event.offsetY;
+
+                const dpi = window.devicePixelRatio || 1;
+                const clientX = mouseX * dpi; // Adjust for DPI for accurate hit detection
+                const clientY = mouseY * dpi; // Adjust for DPI for accurate hit detection
+
+                const centerX = canvas.width / (2 * dpi);
+                const centerY = canvas.height / (2 * dpi);
+
+                let clickedSegmentLabel = null;
+
+                // Iterate through activeSegmentsForClick to find which segment was clicked
+                for (let i = 0; i < activeSegmentsForClick.length; i++) {
+                    const segment = activeSegmentsForClick[i];
+
+                    // Recreate the path for hit testing
+                    const tempPath = new Path2D();
+                    tempPath.arc(centerX, centerY, segment.outerRadius, segment.startAngle, segment.endAngle);
+                    tempPath.arc(centerX, centerY, segment.innerRadius, segment.endAngle, segment.startAngle, true);
+                    tempPath.closePath();
+
+                    // Check if the point (clientX, clientY) is in the path
+                    if (ctx.isPointInPath(tempPath, clientX, clientY)) {
+                        clickedSegmentLabel = segment.label;
+                        break;
+                    }
+                }
+
+                if (clickedSegmentLabel) {
+                    filterTableByChartSegment(clickedSegmentLabel);
+                }
+            });
+
+
+            // Optionally, add an event listener for "Enter" key in the search input
+            document.getElementById('search-input').addEventListener('keypress', function(event) {
+                if (event.key === 'Enter') {
+                    searchTable();
+                }
+            });
+
+            // Initially load the overall data chart
+            updateChart('applications');
+        };
+
+        // Redraw chart on window resize to make it responsive
+        window.addEventListener('resize', () => updateChart(currentChartTitle.includes('Overall') ? 'applications' : (currentChartTitle.includes('Service') ? 'services' : 'complaints')));
+    </script>
+</body>
+</html>
